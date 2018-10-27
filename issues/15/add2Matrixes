@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class matricesAdd {
+
+    static int[][] addMatrix(int[][] m1, int[][] m2) {
+        int[][] arr = new int[m1.length][m1[0].length];
+
+        for (int i = 0; i < m1.length; i++) {//initialize array
+            for (int j = 0; j < m1[0].length; j++) {
+                arr[i][j] = 0;
+            }
+        }
+
+        if (m1.length != m2.length && m1[0].length != m2[0].length) { //if matrix dimensions dont match, cant add
+            //skips to end, should return the empty array of zeros
+        } else {
+            for (int i = 0; i < m1.length; i++) {
+                for (int j = 0; j < m1[0].length; j++) {
+                    arr[i][j] = m1[i][j] + m2[i][j];
+                }
+            }
+        }
+        return arr;
+    }
+}
