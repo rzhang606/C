@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class mergeSort {
+
+   public static void sort(int[] a) {
+    if(a.length > 1) {
+        //split the array
+        int[] b = Arrays.copyOfRange(a, 0,a.length/2);
+        int[] c = Arrays.copyOfRange(a, a.length/2, a.length);
+
+        //uses recursion to sort each half
+        sort(b);
+        sort(c);
+
+        //merges into final solution
+        merge(a, b ,c);
+    }
+   }
+
+   public static void merge(int[] a, int[] b, int[] c) {
+        int x = 0; //index left array
+        int y = 0; //index right array
+        for(int i = 0; i < a.length; i++) {
+            if (y >= c.length || (x < b.length && b[x] <= c[y])) {
+                a[i] = b[x];
+                x++;
+            } else {
+                a[i] = c[y];
+                y++;
+            }
+        }
+   }
+}
